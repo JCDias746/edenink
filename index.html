@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Eden Ink · Devocionais</title>
+<meta name="description" content="Devocionais de 90 dias nos Evangelhos, com ilustrações da Laura Dias. 90-day Gospel devotionals illustrated by Laura Dias.">
+<meta property="og:title" content="Eden Ink · 90 dias nos Evangelhos">
+<meta property="og:description" content="Um diário bíblico SOAP. A SOAP Bible journal. By Laura Dias.">
+<meta property="og:image" content="https://edenink.jcdias.com/img/colecao-pt.jpg">
+<meta property="og:url" content="https://edenink.jcdias.com/">
+<link rel="canonical" href="https://edenink.jcdias.com/">
+<meta name="theme-color" content="#FDF9F6">
+<link rel="icon" href="img/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FDF9F6;
+    --brown: #533326;
+    --green: #7B8460;
+    --sage: #AAB590;
+    --line: #ECDCCF;
+    --blush: #F3E3DC;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    min-height: 100vh; min-height: 100dvh;
+    background: var(--cream) url("img/fundo.jpg") center top / cover fixed no-repeat;
+    color: var(--brown);
+    font-family: "Quicksand", system-ui, sans-serif;
+    display: flex; justify-content: center; align-items: flex-start;
+    padding: 24px 16px 40px;
+  }
+  .card {
+    width: 100%; max-width: 440px;
+    background: rgba(253, 249, 246, 0.94);
+    border: 1px solid var(--line);
+    border-radius: 22px;
+    padding: 18px 22px 26px;
+    box-shadow: 0 18px 50px rgba(83, 51, 38, 0.10);
+    text-align: center;
+  }
+
+  /* language flags */
+  .flags { display: flex; justify-content: center; gap: 10px; margin-top: 4px; }
+  .flag {
+    display: flex; align-items: center; gap: 8px;
+    padding: 8px 16px 8px 10px; border-radius: 999px;
+    background: transparent; border: 1px solid var(--line);
+    font: 500 13px "Jost", sans-serif; letter-spacing: .12em; color: var(--brown);
+    cursor: pointer; opacity: .6; transition: opacity .2s, background .2s, border-color .2s;
+  }
+  .flag svg { width: 30px; height: 20px; border-radius: 3px; box-shadow: 0 0 0 1px rgba(83,51,38,.12); flex: none; }
+  .flag[aria-pressed="true"] { opacity: 1; background: var(--cream); border-color: var(--sage); }
+  .flag:hover { opacity: 1; }
+
+  .logo { width: 150px; height: auto; display: block; margin: 18px auto 14px; }
+  .label {
+    font-family: "Jost", sans-serif; font-size: 10.5px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--green);
+  }
+  h1 { font-weight: 600; font-size: 27px; line-height: 1.2; margin: 10px 0 8px; }
+  .rule { width: 34px; height: 1px; background: var(--sage); margin: 14px auto; border: 0; }
+  .lead { font-size: 15px; line-height: 1.6; opacity: 0.9; }
+
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; text-align: left; }
+  .item { display: flex; flex-direction: column; }
+  .item img {
+    width: 100%; aspect-ratio: 440 / 624; object-fit: cover;
+    border-radius: 10px; border: 1px solid var(--line);
+    box-shadow: 0 6px 16px rgba(83, 51, 38, 0.10);
+  }
+  .item .name { font-weight: 600; font-size: 15px; margin: 10px 0 2px; }
+  .item .sub { font-family: "Jost", sans-serif; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--green); }
+  .buy {
+    margin-top: 10px; display: block; text-align: center; text-decoration: none;
+    background: var(--green); color: var(--cream);
+    font: 600 14px "Quicksand", sans-serif;
+    padding: 11px 8px; border-radius: 10px;
+    transition: background .2s, transform .1s;
+  }
+  .buy:hover { background: var(--brown); }
+  .buy:active { transform: scale(.97); }
+  .price { font-weight: 600; font-size: 14px; margin-top: 6px; }
+  .combo {
+    margin-top: 22px; padding: 16px 16px 18px; border-radius: 16px;
+    background: var(--blush); border: 1px solid var(--line); text-align: center;
+  }
+  .combo .tag {
+    display: inline-block; font: 500 10px "Jost", sans-serif; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--cream); background: var(--green); padding: 5px 10px; border-radius: 999px;
+  }
+  .combo img { width: 100%; border-radius: 12px; margin: 12px 0 6px; display: block; }
+  .combo h2 { font-weight: 600; font-size: 19px; line-height: 1.25; margin: 6px 0 4px; }
+  .combo p { font-size: 13.5px; line-height: 1.5; opacity: .9; }
+  .combo .price { font-size: 18px; margin-top: 8px; }
+  .combo .price s { font-weight: 400; font-size: 14px; opacity: .6; margin-right: 6px; }
+  .combo .buy { font-size: 15px; padding: 13px 8px; }
+  .note { font-size: 12.5px; line-height: 1.55; margin-top: 20px; opacity: .8; }
+  footer {
+    margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--line);
+    font-family: "Jost", sans-serif; font-size: 10px; letter-spacing: .24em; text-transform: uppercase; color: var(--sage);
+  }
+  footer a { color: var(--brown); text-decoration: none; }
+  @media (max-width: 340px) { .grid { gap: 10px; } .item .name { font-size: 14px; } }
+</style>
+</head>
+<body>
+<main class="card">
+  <div class="flags" role="group" aria-label="Idioma / Language">
+    <button class="flag" data-lang="pt" aria-pressed="false" title="Português">
+      <svg viewBox="0 0 28 20" aria-hidden="true"><rect width="28" height="20" fill="#009C3B"/><path d="M14 2.2 25.6 10 14 17.8 2.4 10z" fill="#FFDF00"/><circle cx="14" cy="10" r="4.6" fill="#002776"/><path d="M9.6 9.2c3-.9 6.4-.5 8.9 1" stroke="#fff" stroke-width=".8" fill="none"/></svg>
+      PT
+    </button>
+    <button class="flag" data-lang="en" aria-pressed="false" title="English">
+      <svg viewBox="0 0 60 40" aria-hidden="true"><clipPath id="uk"><rect width="60" height="40"/></clipPath><g clip-path="url(#uk)"><rect width="60" height="40" fill="#012169"/><path d="M0 0 60 40M60 0 0 40" stroke="#fff" stroke-width="8"/><path d="M0 0 60 40M60 0 0 40" stroke="#C8102E" stroke-width="3"/><path d="M30 0v40M0 20h60" stroke="#fff" stroke-width="12"/><path d="M30 0v40M0 20h60" stroke="#C8102E" stroke-width="7"/></g></svg>
+      EN
+    </button>
+  </div>
+
+  <img class="logo" src="img/logo.png" alt="Eden Ink by Laura Dias">
+  <p class="label" id="t-label"></p>
+  <h1 id="t-title"></h1>
+  <hr class="rule">
+  <p class="lead" id="t-lead"></p>
+  <div class="grid" id="grid"></div>
+  <div class="combo" id="combo"></div>
+  <p class="note" id="t-note"></p>
+
+  <footer>Eden Ink · by Laura Dias · <a href="https://www.instagram.com/laura_diasofficial/" target="_blank" rel="noopener">@laura_diasofficial</a></footer>
+</main>
+
+<script>
+  // ▼ Cole aqui os links de pagamento da Hotmart (checkout) de cada devocional.
+  const LINKS = {
+    pt: {
+      mateus:  "https://pay.hotmart.com/D107838279K?checkoutMode=10",
+      marcos:  "https://pay.hotmart.com/H107838313N?checkoutMode=10",
+      lucas:   "https://pay.hotmart.com/B107838354V?checkoutMode=10",
+      joao:    "https://pay.hotmart.com/S107838377H?checkoutMode=10",
+      colecao: "https://pay.hotmart.com/Q107838401V?checkoutMode=10"
+    },
+    en: {
+      matthew:    "https://pay.hotmart.com/O107838831P?checkoutMode=10",
+      mark:       "https://pay.hotmart.com/M107838886J?off=k8080sqn&checkoutMode=10",
+      luke:       "https://pay.hotmart.com/R107838996T?checkoutMode=10",
+      john:       "https://pay.hotmart.com/D107839028A?checkoutMode=10",
+      collection: "https://pay.hotmart.com/G107839070W?checkoutMode=10"
+    }
+  };
+
+  const TEXT = {
+    pt: {
+      label: "Um diário bíblico SOAP",
+      title: "90 dias nos Evangelhos",
+      lead: "Leia o Evangelho inteiro em 90 dias. Uma passagem por dia, quinze minutos e uma caneta. Escolha o seu:",
+      sub: "90 dias",
+      buy: "Quero este",
+      price: "R$27",
+      combo: { slug: "colecao", tag: "Mais vantajoso", title: "Coleção com os 4 Evangelhos",
+               text: "Mateus, Marcos, Lucas e João. 360 dias, quase um ano inteiro com Jesus.",
+               old: "R$108", price: "R$67", buy: "Quero a coleção" },
+      note: "Pagamento seguro pela Hotmart. Você recebe o PDF no seu e-mail logo após a compra.",
+      items: [["mateus", "Mateus"], ["marcos", "Marcos"], ["lucas", "Lucas"], ["joao", "João"]]
+    },
+    en: {
+      label: "A SOAP Bible journal",
+      title: "90 days in the Gospels",
+      lead: "Read the whole Gospel in 90 days. One passage a day, fifteen minutes and a pen. Choose yours:",
+      sub: "90 days",
+      buy: "Get this one",
+      price: "£6.99",
+      combo: { slug: "collection", tag: "Best value", title: "All 4 Gospels Collection",
+               text: "Matthew, Mark, Luke and John. 360 days, almost a whole year with Jesus.",
+               old: "£27.96", price: "£17.99", buy: "Get the collection" },
+      note: "Secure checkout by Hotmart. Your PDF arrives by email right after purchase.",
+      items: [["matthew", "Matthew"], ["mark", "Mark"], ["luke", "Luke"], ["john", "John"]]
+    }
+  };
+
+  const $ = (id) => document.getElementById(id);
+
+  function show(lang) {
+    const t = TEXT[lang];
+    document.documentElement.lang = lang === "pt" ? "pt-BR" : "en";
+    document.querySelectorAll(".flag").forEach(b => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+    $("t-label").textContent = t.label;
+    $("t-title").textContent = t.title;
+    $("t-lead").textContent = t.lead;
+    $("t-note").textContent = t.note;
+    $("grid").innerHTML = t.items.map(([slug, name]) => {
+      const url = LINKS[lang][slug] || "#";
+      return `<div class="item">
+        <img src="img/capa-${slug}.jpg" alt="${t.sub} ${name}">
+        <p class="name">${name}</p>
+        <p class="sub">${t.sub}</p>
+        <p class="price">${t.price}</p>
+        <a class="buy" href="${url}" target="_blank" rel="noopener">${t.buy}</a>
+      </div>`;
+    }).join("");
+    const c = t.combo;
+    $("combo").innerHTML = `<span class="tag">${c.tag}</span>
+      <img src="img/colecao-${lang}.jpg" alt="${c.title}">
+      <h2>${c.title}</h2>
+      <p>${c.text}</p>
+      <p class="price"><s>${c.old}</s>${c.price}</p>
+      <a class="buy" href="${LINKS[lang][c.slug] || "#"}" target="_blank" rel="noopener">${c.buy}</a>`;
+  }
+
+  function initialLang() {
+    const h = location.hash.replace("#", "");
+    if (h === "pt" || h === "en") return h;
+    return (navigator.language || "").toLowerCase().startsWith("pt") ? "pt" : "en";
+  }
+
+  document.querySelectorAll(".flag").forEach(b =>
+    b.addEventListener("click", () => { history.replaceState(null, "", "#" + b.dataset.lang); show(b.dataset.lang); }));
+  window.addEventListener("hashchange", () => show(initialLang()));
+  show(initialLang());
+</script>
+</body>
+</html>
